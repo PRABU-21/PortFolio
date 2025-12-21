@@ -33,8 +33,8 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Mail size={20} className="text-yellow-400" />
-            <span>Email</span>
+            <Mail size={20} style={{ color: 'rgb(187,165,61)' }} />
+            <span className="hover:text-yellow-400">Email</span>
           </a>
           
           {/* GitHub */}
@@ -44,8 +44,8 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github size={20} className="text-yellow-400" />
-            <span>GitHub</span>
+            <Github size={20} style={{ color: 'rgb(187,165,61)' }} />
+            <span className="hover:text-yellow-400">GitHub</span>
           </a>
           
           {/* LinkedIn */}
@@ -55,8 +55,8 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Linkedin size={20} className="text-yellow-400" />
-            <span>LinkedIn</span>
+            <Linkedin size={20} style={{ color: 'rgb(187,165,61)' }} />
+            <span className="hover:text-yellow-400">LinkedIn</span>
           </a>
           
           {/* LeetCode */}
@@ -66,8 +66,8 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Code size={20} className="text-yellow-400" />
-            <span>LeetCode</span>
+            <Code size={20} style={{ color: 'rgb(187,165,61)' }} />
+            <span className="hover:text-yellow-400">LeetCode</span>
           </a>
           
           {/* Resume Download */}
@@ -76,8 +76,8 @@ const Hero = () => {
             download
             className="flex items-center gap-2 px-6 py-3 text-yellow-100 rounded-lg transition-all duration-300 hover:text-yellow-300 hover:scale-105"
           >
-            <Download size={20} className="text-yellow-300" />
-            <span>Resume</span>
+            <Download size={20} style={{ color: 'rgb(187,165,61)' }} />
+            <span className="hover:text-yellow-400">Resume</span>
           </a>
         </div>
       </div>

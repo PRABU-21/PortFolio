@@ -1,0 +1,4 @@
+This is a placeholder for certification images.
+Replace this file with actual certification badges named:
+- azure-ai-engineer.jpg
+- mongodb-developer.jpg

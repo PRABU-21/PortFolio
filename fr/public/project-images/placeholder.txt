@@ -1,0 +1,7 @@
+This is a placeholder for project dashboard images.
+Replace this file with actual project screenshots named:
+- farming-assistant.jpg
+- project2.jpg
+- project3.jpg
+- project4.jpg
+- project5.jpg
