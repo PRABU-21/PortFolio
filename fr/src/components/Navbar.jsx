@@ -1,38 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useSmoothScroll from './hooks/useSmoothScroll';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  // Close mobile menu when clicking a link
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
-
-  // Track active section for highlighting
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'projects', 'achievements', 'certifications', 'stat', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -43,6 +13,14 @@ const Navbar = () => {
     { id: 'stat', label: 'Stat' },
     { id: 'contact', label: 'Contact' }
   ];
+
+  const { activeSection, scrollToSection } = useSmoothScroll(navItems);
+
+  // Close mobile menu when clicking a link
+  const handleLinkClick = (sectionId) => {
+    setIsMenuOpen(false);
+    scrollToSection(sectionId);
+  };
 
   return (
     <nav className="bg-black bg-opacity-30 backdrop-blur-sm text-amber-100 p-4 fixed w-full z-20">
@@ -55,17 +33,16 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-8">
           {navItems.map((item) => (
             <li key={item.id}>
-              <a 
-                href={`#${item.id}`} 
-                className={`transition-colors ${
+              <button
+                onClick={() => handleLinkClick(item.id)}
+                className={`transition-all duration-300 ease-out transform hover:scale-105 py-1 px-2 rounded-md ${
                   activeSection === item.id 
-                    ? 'text-yellow-400 font-medium' 
-                    : 'hover:text-yellow-400'
+                    ? 'text-[#E8E3B1] font-medium' 
+                    : 'hover:text-[#E8E3B1] hover:opacity-90'
                 }`}
-                onClick={handleLinkClick}
               >
-                {item.label}
-              </a>
+                <span>{item.label}</span>
+              </button>
             </li>
           ))}
         </ul>
@@ -93,20 +70,21 @@ const Navbar = () => {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <ul className="md:hidden mt-4 space-y-4 bg-black bg-opacity-90 py-4 px-4 rounded-lg">
+        <ul 
+          className="md:hidden mt-4 space-y-4 bg-black bg-opacity-90 py-4 px-4 rounded-lg"
+        >
           {navItems.map((item) => (
             <li key={item.id}>
-              <a 
-                href={`#${item.id}`} 
-                className={`block py-2 transition-colors ${
+              <button
+                onClick={() => handleLinkClick(item.id)}
+                className={`block w-full text-left py-2 transition-all duration-300 ease-out transform hover:scale-[1.02] ${
                   activeSection === item.id 
-                    ? 'text-yellow-400 font-medium' 
-                    : 'hover:text-yellow-400'
+                    ? 'text-[#E8E3B1] font-medium' 
+                    : 'hover:text-[#E8E3B1] hover:opacity-90'
                 }`}
-                onClick={handleLinkClick}
               >
-                {item.label}
-              </a>
+                <span>{item.label}</span>
+              </button>
             </li>
           ))}
         </ul>
