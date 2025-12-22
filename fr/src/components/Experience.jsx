@@ -111,7 +111,7 @@ const Experience = () => {
         {/* Section Title */}
         <ScrollFloat
           containerClassName="text-center mb-16"
-          textClassName="text-4xl md:text-5xl font-bold text-yellow-100"
+          textClassName="text-4xl md:text-5xl font-bold text-[#E8E3B1]"
           scrollStart="top bottom-=10%"
           scrollEnd="center center"
         >
@@ -121,7 +121,7 @@ const Experience = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line with Draw Animation */}
-          <div ref={timelineRef} className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-yellow-200/40 via-yellow-300/60 to-yellow-200/40"></div>
+          <div ref={timelineRef} className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#E8E3B1]/40 via-[#E8E3B1]/60 to-[#E8E3B1]/40"></div>
 
           {/* Experience Cards */}
           <div className="space-y-12">
@@ -136,35 +136,35 @@ const Experience = () => {
                 {/* Timeline Dot with Pop Animation */}
                 <div 
                   ref={el => dotRefs.current[index] = el}
-                  className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-black shadow-lg"
+                  className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#E8E3B1] rounded-full border-4 border-black shadow-lg"
                 ></div>
 
                 {/* Card */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <div className="group relative bg-yellow-100/5 backdrop-blur-sm border border-yellow-100/20 rounded-xl p-6 hover:bg-yellow-100/10 hover:border-yellow-100/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10">
+                  <div className="group relative bg-[#000000] backdrop-blur-sm border border-[#E8E3B1]/20 rounded-xl p-6 hover:bg-[#000000] hover:border-[#E8E3B1]/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#E8E3B1]/10">
                     {/* Period */}
-                    <div className="flex items-center gap-2 text-yellow-200 mb-3" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
+                    <div className="flex items-center gap-2 text-[#E8E3B1] mb-3" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
                       <Calendar size={16} style={{ color: 'rgb(187,165,61)' }} />
-                      <span className="text-sm font-medium">{exp.period}</span>
+                      <span className="text-sm font-medium text-[#E8E3B1]">{exp.period}</span>
                     </div>
 
                     {/* Company & Role */}
                     <div className="mb-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-yellow-100 mb-2 animate-fade-in-up" style={{ animationDelay: `${1.4 + index * 0.4}s` }}>
+                      <h3 className="text-xl md:text-2xl font-bold text-[#E8E3B1] mb-2 animate-fade-in-up" style={{ animationDelay: `${1.4 + index * 0.4}s` }}>
                         {exp.company}
                       </h3>
-                      <div className="flex items-center gap-2 text-yellow-100/80 mb-1 animate-fade-in-up" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', animationDelay: `${1.5 + index * 0.4}s` }}>
+                      <div className="flex items-center gap-2 text-[#E8E3B1]/80 mb-1 animate-fade-in-up" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', animationDelay: `${1.5 + index * 0.4}s` }}>
                         <Briefcase size={16} style={{ color: 'rgb(187,165,61)' }} />
-                        <span className="text-sm font-medium">{exp.role}</span>
+                        <span className="text-sm font-medium text-[#E8E3B1]">{exp.role}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-yellow-100/70 animate-fade-in-up" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', animationDelay: `${1.6 + index * 0.4}s` }}>
+                      <div className="flex items-center gap-2 text-[#E8E3B1]/70 animate-fade-in-up" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', animationDelay: `${1.6 + index * 0.4}s` }}>
                         <MapPin size={16} style={{ color: 'rgb(187,165,61)' }} />
-                        <span className="text-sm">{exp.location}</span>
+                        <span className="text-sm text-[#E8E3B1]">{exp.location}</span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-yellow-100/80 leading-relaxed mb-4 animate-fade-in-up" style={{ animationDelay: `${1.7 + index * 0.4}s` }}>
+                    <p className="text-[#E8E3B1]/80 leading-relaxed mb-4 animate-fade-in-up" style={{ animationDelay: `${1.7 + index * 0.4}s` }}>
                       {exp.description}
                     </p>
 
@@ -173,7 +173,7 @@ const Experience = () => {
                       {exp.skills.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs font-medium bg-yellow-100/10 text-yellow-100 rounded-full border border-yellow-100/20 animate-fade-in-up hover:bg-amber-500/20 hover:border-amber-400/30 hover:scale-110 transition-all duration-300"
+                          className="px-3 py-1 text-xs font-medium bg-[#000000] text-[#E8E3B1] rounded-full border border-[#E8E3B1]/20 animate-fade-in-up hover:bg-[#E8E3B1]/20 hover:border-[#E8E3B1]/30 hover:scale-110 transition-all duration-300"
                           style={{ animationDelay: `${1.5 + index * 0.3 + idx * 0.1}s` }}
                         >
                           {skill}
@@ -182,7 +182,7 @@ const Experience = () => {
                     </div>
 
                     {/* Hover Effect Gradient */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-100/0 via-yellow-100/5 to-yellow-100/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#E8E3B1]/0 via-[#E8E3B1]/5 to-[#E8E3B1]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                 </div>
 

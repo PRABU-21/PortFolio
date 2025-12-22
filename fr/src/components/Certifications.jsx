@@ -5,21 +5,23 @@ const Certifications = () => {
   const certifications = [
     {
       id: 1,
-      title: "Microsoft Certified: Azure AI Engineer Associate",
-      description: "Certification validating expertise in implementing Azure AI solutions including natural language processing, computer vision, and generative AI services.",
-      technologies: ['Azure', 'AI', 'Machine Learning', 'Cloud'],
-      impact: "Demonstrated proficiency in Microsoft Azure AI technologies",
-      accuracy: "Associate Level",
-      imageUrl: "/certification-images/azure-ai-engineer.jpg"
+      company: "Microsoft",
+      title: "Microsoft Azure AI Engineer Associate",
+      description: "Microsoft Azure AI Engineer Associate certificate badge",
+      technologies: ['Azure AI services', 'Machine Learning', 'Cognitive Services', 'MLOps'],
+      pdfUrl: "/certification-images/AZURE CERTIFICATE.pdf",
+      logoUrl: "/logo/microsoft.webp",
+      imageUrl: "/certification-images/azure.png"
     },
     {
       id: 2,
-      title: "MongoDB Certified Associate Developer",
-      description: "Certification validating skills in MongoDB database design, querying, and application development with MongoDB technologies.",
-      technologies: ['MongoDB', 'NoSQL', 'Database', 'Development'],
-      impact: "Proven expertise in document-oriented database technologies",
-      accuracy: "Associate Level",
-      imageUrl: "/certification-images/mongodb-developer.jpg"
+      company: "MongoDB",
+      title: "MongoDB Certified Developer Associate",
+      description: "MongoDB Certified Developer Associate certificate badge",
+      technologies: ['MongoDB data modeling', 'querying', 'aggregation', 'indexing'],
+      pdfUrl: "/certification-images/mongo db prabu.pdf",
+      logoUrl: "/logo/mongodb-icon-1.svg",
+      imageUrl: "/certification-images/mongodb.png"
     }
   ];
 
@@ -29,7 +31,7 @@ const Certifications = () => {
         {/* Section Title */}
         <ScrollFloat
           containerClassName="text-center mb-16"
-          textClassName="text-4xl md:text-5xl font-bold text-yellow-100"
+          textClassName="text-4xl md:text-5xl font-bold text-[#E8E3B1]"
           scrollStart="top bottom-=10%"
           scrollEnd="center center"
         >
@@ -37,67 +39,72 @@ const Certifications = () => {
         </ScrollFloat>
 
         {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {certifications.map((certification) => (
             <SpotlightCard 
               key={certification.id}
-              className="bg-gradient-to-br from-neutral-900 to-neutral-950 border-neutral-800 aspect-square flex flex-col"
-              spotlightColor="rgba(234, 179, 8, 0.15)"
+              className="border-neutral-800 aspect-square flex flex-col"
+              spotlightColor="rgba(212, 175, 55, 0.25)"
             >
-              <div className="space-y-4 h-full flex flex-col">
-                {/* Certification Image Placeholder */}
-                <div className="rounded-lg overflow-hidden bg-neutral-800 border border-neutral-700 h-32 flex items-center justify-center">
+              <div className="h-full flex flex-col bg-[#000000]">
+                {/* Company Logo and Title */}
+                <div className="flex items-start gap-3 mb-4">
+                  {certification.logoUrl && (
+                    <img 
+                      src={certification.logoUrl} 
+                      alt={`${certification.company} logo`} 
+                      className="w-10 h-10 object-contain"
+                    />
+                  )}
+                  <div>
+                    <h3 className="font-bold text-[#E8E3B1]">{certification.company}</h3>
+                    <p className="text-sm text-[#E8E3B1] font-medium">{certification.title}</p>
+                  </div>
+                </div>
+                
+                {/* Certificate Description */}
+                <p className="text-xs text-[#E8E3B1]/80 mb-4">
+                  {certification.description}
+                </p>
+                
+                {/* Certificate Image */}
+                <div className="rounded-lg overflow-hidden bg-[#000000] border border-neutral-700 mb-4 flex-grow flex items-center justify-center">
                   {certification.imageUrl ? (
                     <img 
                       src={certification.imageUrl} 
                       alt={certification.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain p-2"
                     />
                   ) : (
-                    <div className="text-neutral-500 text-sm">Certification Badge</div>
+                    <div className="text-neutral-500 text-sm">Certificate Image</div>
                   )}
                 </div>
                 
-                {/* Certification Header */}
-                <div className="space-y-2 flex-grow">
-                  <h3 className="text-xl font-bold text-yellow-100 truncate">
-                    {certification.title}
-                  </h3>
-                  <p className="text-sm text-yellow-100/80 leading-relaxed line-clamp-2">
-                    {certification.description}
-                  </p>
-                  
-                  {/* Level Badge */}
-                  <div className="inline-block px-2 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full">
-                    <span className="text-amber-300 text-xs font-medium">{certification.accuracy}</span>
-                  </div>
-                </div>
-
-                {/* Skills/Tags */}
-                <div>
+                {/* Skills */}
+                <div className="mb-3">
+                  <p className="text-xs text-[#E8E3B1] font-medium mb-1">Skills:</p>
                   <div className="flex flex-wrap gap-1">
-                    {certification.technologies.slice(0, 3).map((tech, index) => (
+                    {certification.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 text-xs font-medium bg-neutral-800 text-yellow-100 rounded border border-neutral-700 truncate max-w-[80px]"
+                        className="px-2 py-1 text-xs bg-[#000000] text-[#E8E3B1] rounded border border-neutral-700"
                       >
                         {tech}
                       </span>
                     ))}
-                    {certification.technologies.length > 3 && (
-                      <span className="px-2 py-1 text-xs font-medium bg-neutral-800 text-yellow-100 rounded border border-neutral-700">
-                        +{certification.technologies.length - 3}
-                      </span>
-                    )}
                   </div>
                 </div>
-
-                {/* Impact */}
-                <div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                    <p className="text-yellow-100/80 text-xs italic truncate">{certification.impact}</p>
-                  </div>
+                
+                {/* View Credential Link */}
+                <div className="mt-auto pt-2">
+                  <a 
+                    href={certification.pdfUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#E8E3B1] hover:underline"
+                  >
+                    View Credential
+                  </a>
                 </div>
               </div>
             </SpotlightCard>
