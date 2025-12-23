@@ -12,7 +12,7 @@ const Projects = () => {
 
       impact: "Empowering farmers with data-driven insights",
       accuracy: "92% accuracy",
-      imageUrl: "/project-images/farming-assistant.jpg"
+      imageUrl: "/project-images/farmora.png"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const Projects = () => {
 
       impact: "Responsible AI practices in healthcare accessibility",
       accuracy: "92% accuracy",
-      imageUrl: "/project-images/medilink.jpg"
+      imageUrl: "/project-images/intel-medilink.png"
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const Projects = () => {
 
       impact: "Enhanced recruitment efficiency through intelligent matching",
       accuracy: "Improved precision",
-      imageUrl: "/project-images/resume-system.jpg"
+      imageUrl: "/project-images/internodyssy.png"
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ const Projects = () => {
 
       impact: "Streamlined question paper creation for educational institutions",
       accuracy: "High precision OCR",
-      imageUrl: "/project-images/question-generator.jpg"
+      imageUrl: "/project-images/paperproctor.png"
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const Projects = () => {
 
       impact: "Enhanced personal financial literacy and management",
       accuracy: "Real-time tracking",
-      imageUrl: "/project-images/zenith-finance.jpg"
+      imageUrl: "/project-images/zenith.png"
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ const Projects = () => {
 
       impact: "Academic project demonstrating core Java and database concepts",
       accuracy: "Reliable CRUD operations",
-      imageUrl: "/project-images/library-management.jpg"
+      imageUrl: ""
     }
   ];
 
