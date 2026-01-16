@@ -1,43 +1,44 @@
 import { 
   SiJavascript, 
-  SiReact, 
-  SiNodedotjs, 
   SiPython, 
-  SiTypescript, 
-  SiMongodb, 
-  SiGit, 
-  SiDocker,
-  SiExpress,
-  SiPostgresql,
-  SiTailwindcss,
   SiCplusplus,
+  SiC,
+  SiMongodb,
   SiMysql,
-  SiRedis,
-  SiLinux
+  SiTailwindcss,
+  SiHtml5,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiFastapi,
+  SiGithub,
+  SiPostman
 } from 'react-icons/si';
-import { FaJava } from 'react-icons/fa';
+import { FaJava, FaRocket } from 'react-icons/fa';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import ScrollFloat from './ScrollFloat';
 import FadeInSection from './FadeInSection';
 
 const About = () => {
   // Tech stack data with professional icons from react-icons
   const techSkills = [
-    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
-    { name: 'React', icon: SiReact, color: '#61DAFB' },
-    { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-    { name: 'Python', icon: SiPython, color: '#3776AB' },
-    { name: 'C++', icon: SiCplusplus, color: '#00599C' },
     { name: 'Java', icon: FaJava, color: '#007396' },
-    { name: 'Express', icon: SiExpress, color: '#FFFFFF' },
+    { name: 'Python', icon: SiPython, color: '#3776AB' },
+    { name: 'C', icon: SiC, color: '#A8B9CC' },
+    { name: 'C++', icon: SiCplusplus, color: '#00599C' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
     { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-    { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
-    { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-    { name: 'Redis', icon: SiRedis, color: '#DC382D' },
+    { name: 'SQL', icon: SiMysql, color: '#4479A1' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-    { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-    { name: 'Git', icon: SiGit, color: '#F05032' },
-    { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+    { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
+    { name: 'React.js', icon: SiReact, color: '#61DAFB' },
+    { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+    { name: 'Express.js', icon: SiExpress, color: '#444444' },
+    { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+    { name: 'GitHub', icon: SiGithub, color: '#181717' },
+    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+    { name: 'Hugging Face', icon: '🤗', color: '#FFD43B' },
+    { name: 'Vite', icon: '/vite.svg', color: '#646CFF' },
   ];
 
   return (
@@ -46,7 +47,7 @@ const About = () => {
         {/* Section Title with ScrollFloat */}
         <ScrollFloat
           containerClassName="text-center mb-16"
-          textClassName="text-4xl md:text-5xl font-bold text-yellow-100"
+          textClassName="text-4xl md:text-5xl font-bold text-[#E8E3B1]"
           scrollStart="top bottom-=10%"
           scrollEnd="center center"
         >
@@ -75,38 +76,46 @@ const About = () => {
           {/* Right Side - Details */}
           <div className="text-white space-y-6">
             <FadeInSection delay={200}>
-              <h3 className="text-2xl md:text-3xl font-semibold text-yellow-100">
-                Hi, I'm Prabakaran S B
+              <h3 className="text-2xl md:text-3xl font-semibold text-[#E8E3B1]">
+                Hi, I'm PRABAKARAN S B
               </h3>
             </FadeInSection>
-            
-            <FadeInSection delay={300}>
-              <p className="text-lg text-yellow-100/80 leading-relaxed">
-                I'm a passionate Software Development Engineer specializing in AI-Driven Systems and Full-Stack Development. I love building scalable, production-ready systems that solve real-world problems.
-              </p>
-            </FadeInSection>
-
             <FadeInSection delay={400}>
-              <p className="text-lg text-yellow-100/80 leading-relaxed">
-                With strong problem-solving fundamentals and a keen eye for detail, I focus on creating efficient, maintainable code and delivering exceptional user experiences.
+              <p className="text-lg text-[#E8E3B1]/80 leading-relaxed">
+                AI & Software Developer crafting intelligent systems with LLMs, ML, and modern web technologies — turning ideas into impactful, real-world products.
               </p>
             </FadeInSection>
-
             {/* Quick Info */}
             <FadeInSection delay={500}>
               <div className="space-y-3 pt-4">
                 <div className="flex items-center gap-3">
-                  <span className="text-yellow-200">📍</span>
-                  <span className="text-yellow-100/80">Location: Your City, Country</span>
+                  <MapPin className="w-4 h-4 text-[#D4AF37]" />
+                  <span className="text-[#E8E3B1]/80">
+                    Hosur, Tamil Nadu, India
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-yellow-200">🎓</span>
-                  <span className="text-yellow-100/80">Education: Your Degree/University</span>
+                  <Mail className="w-4 h-4 text-[#D4AF37]" />
+                  <span className="text-[#E8E3B1]/80">
+                    prabakarancodes@gmail.com
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-yellow-200">💼</span>
-                  <span className="text-yellow-100/80">Open to: Full-time Opportunities</span>
+                  <Phone className="w-4 h-4 text-[#D4AF37]" />
+                  <span className="text-[#E8E3B1]/80">
+                    +91 70103 84271
+                  </span>
                 </div>
+              </div>
+            </FadeInSection>
+
+            {/* Areas of Interest */}
+            <FadeInSection delay={600}>
+              <div className="pt-6">
+                <h4 className="text-2xl font-bold text-[#E8E3B1] mb-6">
+                  Areas of Interest
+                </h4>
+                <p className="text-[#E8E3B1]/80">AI & Machine Learning, Full-Stack Web Development, Large Language Models (LLMs), Scalable Software Engineering</p>
               </div>
             </FadeInSection>
           </div>
@@ -116,7 +125,7 @@ const About = () => {
         <div className="mt-20">
           <ScrollFloat
             containerClassName="text-center mb-10"
-            textClassName="text-3xl font-bold text-yellow-100"
+            textClassName="text-3xl font-bold text-[#E8E3B1]"
             scrollStart="top bottom"
             scrollEnd="center center"
           >
@@ -126,16 +135,39 @@ const About = () => {
           <FadeInSection delay={200}>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-8">
             {techSkills.map((skill, index) => {
-              const IconComponent = skill.icon;
+              // Check if icon is a string (path or emoji) or a React component
+              const isStringIcon = typeof skill.icon === 'string';
+              
               return (
                 <div 
                   key={index}
                   className="group flex flex-col items-center gap-2 transition-all duration-300 hover:scale-125 cursor-pointer"
                 >
-                  <IconComponent 
-                    className="text-3xl md:text-4xl transition-all duration-300 group-hover:drop-shadow-lg" 
-                    style={{ color: skill.color }}
-                  />
+                  {isStringIcon ? (
+                    skill.icon.startsWith('/') ? (
+                      // If it starts with '/', it's an image path
+                      <img 
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-8 h-8 md:w-10 md:h-10 transition-all duration-300 group-hover:drop-shadow-lg"
+                        style={{ filter: `drop-shadow(0 0 2px ${skill.color})` }}
+                      />
+                    ) : (
+                      // Otherwise, it's an emoji
+                      <span 
+                        className="text-3xl md:text-4xl transition-all duration-300 group-hover:drop-shadow-lg"
+                        style={{ color: skill.color }}
+                      >
+                        {skill.icon}
+                      </span>
+                    )
+                  ) : (
+                    // It's a React component icon
+                    <skill.icon
+                      className="text-3xl md:text-4xl transition-all duration-300 group-hover:drop-shadow-lg" 
+                      style={{ color: skill.color }}
+                    />
+                  )}
                   <span className="text-white text-[10px] font-medium text-center opacity-0 group-hover:opacity-100 transition-opacity">
                     {skill.name}
                   </span>

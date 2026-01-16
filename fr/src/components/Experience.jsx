@@ -3,6 +3,7 @@ import ScrollFloat from './ScrollFloat';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,7 @@ const Experience = () => {
   const timelineRef = useRef(null);
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
+  const activeDotRef = useRef(null);
   
   const experiences = [
     {
@@ -34,7 +36,7 @@ const Experience = () => {
   ];
 
   useEffect(() => {
-    // Timeline animation
+    // Timeline animation with color transitions
     const timelineAnimation = gsap.fromTo(timelineRef.current, 
       { height: 0 },
       {
@@ -43,15 +45,31 @@ const Experience = () => {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: timelineRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
+          start: 'top 90%',
+          end: 'bottom 10%',
+          scrub: 1,
+          once: true,
+          onUpdate: (self) => {
+            // Update timeline gradient based on scroll progress
+            const progress = self.progress;
+            const timelineElement = timelineRef.current;
+            if (timelineElement) {
+              // Create dynamic gradient based on scroll progress
+              const startOpacity = 0.4 + progress * 0.2;
+              const midOpacity = 0.6 + progress * 0.2;
+              const endOpacity = 0.4 + progress * 0.2;
+              
+              timelineElement.style.background = `linear-gradient(to bottom, rgba(232, 227, 177, ${startOpacity}), rgba(232, 227, 177, ${midOpacity}), rgba(232, 227, 177, ${endOpacity}))`;
+            }
+          }
         }
       }
     );
 
-    // Card animations
+    // Card animations with tilt effect
     cardRefs.current.forEach((card, index) => {
       if (card) {
+        // Initial animation
         gsap.fromTo(card,
           { 
             x: index % 2 === 0 ? -100 : 100,
@@ -66,15 +84,47 @@ const Experience = () => {
             ease: 'back.out(1.5)',
             scrollTrigger: {
               trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
+              start: 'top 90%',
+              end: 'bottom 10%',
+              toggleActions: 'play none none reverse',
+              once: true
             }
           }
         );
+        
+        // Tilt effect on hover
+        const handleMouseMove = (e) => {
+          if (!card) return;
+          
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateY = (x - centerX) / 25;
+          const rotateX = (centerY - y) / 25;
+          
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0px)`;
+        };
+        
+        const handleMouseLeave = () => {
+          card.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+        };
+        
+        card.addEventListener('mousemove', handleMouseMove);
+        card.addEventListener('mouseleave', handleMouseLeave);
+        
+        // Clean up event listeners
+        return () => {
+          card.removeEventListener('mousemove', handleMouseMove);
+          card.removeEventListener('mouseleave', handleMouseLeave);
+        };
       }
     });
 
-    // Dot animations
+    // Dot animations with elegant fade-in
     dotRefs.current.forEach((dot, index) => {
       if (dot) {
         gsap.fromTo(dot,
@@ -86,8 +136,10 @@ const Experience = () => {
             ease: 'back.out(1.7)',
             scrollTrigger: {
               trigger: dot,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
+              start: 'top 90%',
+              end: 'bottom 10%',
+              toggleActions: 'play none none reverse',
+              once: true
             }
           }
         );
@@ -106,22 +158,54 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="max-w-6xl mx-auto w-full">
-        {/* Section Title */}
-        <ScrollFloat
-          containerClassName="text-center mb-16"
-          textClassName="text-4xl md:text-5xl font-bold text-[#E8E3B1]"
-          scrollStart="top bottom-=10%"
-          scrollEnd="center center"
-        >
-          Experience
-        </ScrollFloat>
+    <>
+      <style>{`
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        
+        @keyframes slowFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
+      <section id="experience" className="min-h-screen flex items-center justify-center px-4 py-20">
+        <div className="max-w-6xl mx-auto w-full">
+          {/* Section Title with Slow Fade-in */}
+          <div className="text-center mb-16">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-[#E8E3B1] inline-block"
+              style={{
+                opacity: 0,
+                animation: 'slowFadeIn 2s ease-out forwards'
+              }}
+            >
+              Experience
+            </h2>
+          </div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Vertical Line with Draw Animation */}
-          <div ref={timelineRef} className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#E8E3B1]/40 via-[#E8E3B1]/60 to-[#E8E3B1]/40"></div>
+          {/* Vertical Line with Draw Animation and Color Transitions */}
+          <div 
+            ref={timelineRef} 
+            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(232, 227, 177, 0.4), rgba(232, 227, 177, 0.6), rgba(232, 227, 177, 0.4))'
+            }}
+          ></div>
 
           {/* Experience Cards */}
           <div className="space-y-12">
@@ -133,15 +217,29 @@ const Experience = () => {
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                {/* Timeline Dot with Pop Animation */}
+                {/* Timeline Dot with Elegant Fade-in */}
                 <div 
                   ref={el => dotRefs.current[index] = el}
-                  className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#E8E3B1] rounded-full border-4 border-black shadow-lg"
+                  className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#E8E3B1] rounded-full border-4 border-black"
+                  style={{
+                    boxShadow: '0 0 5px rgba(232, 227, 177, 0.3), 0 0 10px rgba(232, 227, 177, 0.2)'
+                  }}
                 ></div>
 
                 {/* Card */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <div className="group relative bg-[#000000] backdrop-blur-sm border border-[#E8E3B1]/20 rounded-xl p-6 hover:bg-[#000000] hover:border-[#E8E3B1]/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#E8E3B1]/10">
+                  <div 
+                    className="group relative bg-[#000000] backdrop-blur-sm rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      perspective: '1000px',
+                      border: '1px solid transparent',
+                      background: 'linear-gradient(145deg, #000000, #000000) padding-box, linear-gradient(45deg, #E8E3B1, #D4AF37, #E8E3B1) border-box',
+                      '--tw-gradient-stops': 'linear-gradient(45deg, #E8E3B1, #D4AF37, #E8E3B1)',
+                      transform: 'rotateX(0deg) rotateY(0deg)',
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
                     {/* Period */}
                     <div className="flex items-center gap-2 text-[#E8E3B1] mb-3" style={{ justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start' }}>
                       <Calendar size={16} style={{ color: 'rgb(187,165,61)' }} />
@@ -181,8 +279,17 @@ const Experience = () => {
                       ))}
                     </div>
 
-                    {/* Hover Effect Gradient */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#E8E3B1]/0 via-[#E8E3B1]/5 to-[#E8E3B1]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    {/* Animated Gradient Border Effect */}
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(45deg, #E8E3B1, #D4AF37, #E8E3B1, #E8E3B1, #D4AF37) 1',
+                        backgroundSize: '400% 400%',
+                        animation: 'gradientShift 4s ease infinite',
+                        borderRadius: '0.75rem',
+                        padding: '1px',
+                        margin: '-1px'
+                      }}
+                    ></div>
                   </div>
                 </div>
 
@@ -193,7 +300,8 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 
