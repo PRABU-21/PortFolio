@@ -15,6 +15,37 @@ const Achievements = () => {
     },
     {
       id: 2,
+      title: "Winners - Next Hackathon by Startup-TN",
+      description:
+        "Won the Next Hackathon organized by Startup-TN, showcasing innovative startup solutions.",
+      technologies: ["Hackathon", "Innovation", "Startup"],
+      impact:
+        "Recognition for entrepreneurial thinking and innovative solutions",
+      accuracy: "Winner",
+      imageUrl: "/achievement-images/next hack winner.jpeg",
+    },
+    {
+      id: 3,
+      title: "1st Place - Project Presentation at eareyes2k25",
+      description:
+        "Secured first prize in project presentation competition at eareyes2k25 event.",
+      technologies: ["Innovation", "Presentation", "Project Demo"],
+      impact: "Excellence in project development and presentation skills",
+      accuracy: "First Prize",
+      imageUrl: "/achievement-images/placeholder.txt",
+    },
+    {
+      id: 4,
+      title: "1st Place - Project Presentation at Vision 3.0",
+      description:
+        "Won first prize in the Vision 3.0 project presentation competition.",
+      technologies: ["Innovation", "Teamwork", "Technical Excellence"],
+      impact: "Recognition for innovative project development and delivery",
+      accuracy: "First Prize",
+      imageUrl: "/achievement-images/placeholder.txt",
+    },
+    {
+      id: 5,
       title: "2nd Place - KEC Hacknovate Hackathon 2024",
       description:
         "Secured second position in the competitive hackathon event focusing on innovative solutions.",
@@ -25,7 +56,7 @@ const Achievements = () => {
       imageUrl: "/achievement-images/hacknovate.jpg",
     },
     {
-      id: 3,
+      id: 6,
       title: "1st Place - Paper Presentation at KEC New Wells 2024",
       description:
         "Won first place in the technical paper presentation competition for research excellence.",
@@ -33,37 +64,6 @@ const Achievements = () => {
       impact: "Showcased research capabilities and communication skills",
       accuracy: "First Position",
       imageUrl: "/achievement-images/paperpresentation.png",
-    },
-    {
-      id: 4,
-      title: "1st Place - Project Presentation at eareyes2k25",
-      description:
-        "Secured first prize in project presentation competition at eareyes2k25 event.",
-      technologies: ["Innovation", "Presentation", "Project Demo"],
-      impact: "Excellence in project development and presentation skills",
-      accuracy: "First Prize",
-      imageUrl: "/achievement-images/placeholder.txt",
-    },
-    {
-      id: 5,
-      title: "1st Place - Project Presentation at Vision 3.0",
-      description:
-        "Won first prize in the Vision 3.0 project presentation competition.",
-      technologies: ["Innovation", "Teamwork", "Technical Excellence"],
-      impact: "Recognition for innovative project development and delivery",
-      accuracy: "First Prize",
-      imageUrl: "/achievement-images/placeholder.txt",
-    },
-    {
-      id: 6,
-      title: "Winners - Next Hackathon by Startup-TN",
-      description:
-        "Won the Next Hackathon organized by Startup-TN, showcasing innovative startup solutions.",
-      technologies: ["Hackathon", "Innovation", "Startup"],
-      impact:
-        "Recognition for entrepreneurial thinking and innovative solutions",
-      accuracy: "Winner",
-      imageUrl: "/achievement-images/placeholder.txt",
     },
   ];
 

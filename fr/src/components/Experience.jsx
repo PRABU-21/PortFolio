@@ -17,6 +17,38 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      period: "Feb 2025 - Apr 2025",
+      company: "Intel Unnati",
+      location: "Remote",
+      role: "Industrial Training",
+      description:
+        "Completed a structured industry training program with phased deliverables and mentor evaluations, gaining experience in global collaboration, professional reporting, and disciplined project delivery.",
+      skills: [
+        "Project Management",
+        "Global Collaboration",
+        "Professional Reporting",
+        "Mentorship",
+      ],
+    },
+    {
+      id: 2,
+      period: "Jan 2026 - ongoing",
+      company: "Pranav Techy",
+      location: "Remote",
+      role: "Full Stack Developer Intern",
+      description:
+        "Currently working on healthcare clinical management software using full-stack technologies, focusing on backend logic, database design, API integration, and frontend implementation. Contributing to clinical data handling, workflow implementation, and system optimization while collaborating with cross-functional teams to deliver scalable, secure, and maintainable software solutions.",
+      skills: [
+        "Full Stack Development",
+        "Healthcare Software",
+        "Database Design",
+        "API Integration",
+        "Backend Development",
+        "Frontend Development",
+      ],
+    },
+    {
+      id: 3,
       period: "Nov 2024 - Jan 2025",
       company: "Gen AI Consortium",
       location: "Remote",
@@ -29,21 +61,6 @@ const Experience = () => {
         "NumPy",
         "Machine Learning",
         "Data Analysis",
-      ],
-    },
-    {
-      id: 2,
-      period: "Feb 2025 - Apr 2025",
-      company: "Intel Unnati",
-      location: "Remote",
-      role: "Industrial Training",
-      description:
-        "Completed a structured industry training program with phased deliverables and mentor evaluations, gaining experience in global collaboration, professional reporting, and disciplined project delivery.",
-      skills: [
-        "Project Management",
-        "Global Collaboration",
-        "Professional Reporting",
-        "Mentorship",
       ],
     },
   ];
